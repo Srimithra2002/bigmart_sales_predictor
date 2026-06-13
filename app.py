@@ -150,15 +150,15 @@ if st.button("🔮 Predict Sales"):
     }])
 
     log_pred        = model.predict(input_df)[0]
-    predicted_sales = np.expm1(log_pred)
+    predicted_total_sales_value = np.expm1(log_pred)
 
     # Stock alert
-    if predicted_sales > current_stock:
+    if predicted_total_sales_value > current_stock:
         card_class = "warning"
         status_msg = f"⚠️ Stockout Risk — Only {current_stock} units available"
-    elif predicted_sales < current_stock * 0.7:
+    elif predicted_total_sales_value < current_stock * 0.7:
         card_class = "info"
-        excess     = current_stock - predicted_sales
+        excess     = current_stock - predicted_total_sales_value
         status_msg = f"📦 Overstock Risk — Excess ~{excess:.0f} units"
     else:
         card_class = "success"
@@ -167,7 +167,7 @@ if st.button("🔮 Predict Sales"):
     st.markdown(f"""
     <div class="result-card {card_class}">
         <div class="label">Predicted Sales Revenue</div>
-        <h2>₹ {predicted_sales:,.2f}</h2>
+        <h2>₹ {predicted_total_sales_value:,.2f}</h2>
         <div class="status">{status_msg}</div>
     </div>
     """, unsafe_allow_html=True)
@@ -175,7 +175,7 @@ if st.button("🔮 Predict Sales"):
     st.markdown("---")
     m1, m2, m3 = st.columns(3)
     m1.metric("Item MRP",        f"₹{item_mrp}")
-    m2.metric("Predicted Total Sales value", f"₹{predicted_total_sales_value:,.0f}")
+    m2.metric("Predicted Sales", f"₹{predicted_total_sales_value:,.0f}")
     m3.metric("Stock Units",     current_stock)
 
 # ── Footer ────────────────────────────────────────────────────
@@ -184,6 +184,4 @@ st.markdown(
     "<p style='text-align:center; color:#4a5568; font-size:0.8rem;'>"
     "BigMart Sales Predictor · XGBoost Model · BigMart Dataset</p>",
     unsafe_allow_html=True
-)
-
-
+ 
