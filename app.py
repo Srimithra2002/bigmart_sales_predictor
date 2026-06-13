@@ -175,7 +175,7 @@ if st.button("🔮 Predict Sales"):
     st.markdown("---")
     m1, m2, m3 = st.columns(3)
     m1.metric("Item MRP",        f"₹{item_mrp}")
-    m2.metric("Predicted Sales", f"₹{predicted_sales:,.0f}")
+    m2.metric("Predicted Total Sales value", f"₹{predicted_total_sales_value:,.0f}")
     m3.metric("Stock Units",     current_stock)
 
 # ── Footer ────────────────────────────────────────────────────
@@ -185,4 +185,5 @@ st.markdown(
     "BigMart Sales Predictor · XGBoost Model · BigMart Dataset</p>",
     unsafe_allow_html=True
 )
+
 
