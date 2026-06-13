@@ -184,4 +184,5 @@ st.markdown(
     "<p style='text-align:center; color:#4a5568; font-size:0.8rem;'>"
     "BigMart Sales Predictor · XGBoost Model · BigMart Dataset</p>",
     unsafe_allow_html=True
+)
  
