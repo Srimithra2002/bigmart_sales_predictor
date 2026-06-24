@@ -1,5 +1,6 @@
 # bigmart_sales_predictor
-A Machine Learning web app that predicts retail product sales revenue using XGBoost. Built on BigMart Sales Dataset with feature engineering, hyperparameter tuning, and deployed on Streamlit.
+BigMart Retail Sales Predictor is an end-to-end machine learning project that predicts how much revenue a product will generate in a specific retail store, and uses that prediction to alert whether current stock is too low, too high, or just right.
+
 🔗 Live App
 https://bigmartsalespredictor-9mgjw2zf4tezuxktftxdhq.streamlit.app/
 
@@ -19,4 +20,4 @@ ML Pipeline
 7. Cross Validation (5-fold)
 8. Deployment (Streamlit Cloud)
 
-
+I trained three models — Linear Regression as a baseline (~55% R²), Random Forest using bagging (~58% R²), and XGBoost using sequential boosting (~63–65% R² after RandomizedSearchCV tuning). XGBoost was selected as the final model, saved using joblib, and deployed as a live Streamlit web application."
